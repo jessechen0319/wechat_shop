@@ -1,0 +1,31 @@
+.index {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+
+.index .title {
+    position: relative;
+    background: #d36565;
+    height: 10rem;
+    width: 100%;
+    box-shadow: 0px 5px 5px #a7a7a7;
+    float: left;
+}
+
+.index .body {
+    position: absolute;
+    top: 10.3rem;
+    bottom: 3rem;
+    width: 100%;
+}
+
+.index .item {
+    position: relative;
+    width: 46%;
+    height: 46%;
+    background: #dfc770;
+    display: inline-block;
+    margin-left: 2%;
+    margin-top: 2%;
+}

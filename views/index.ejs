@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="/js/vue.js"></script>
   <script src="/js/vue-router.js"></script>
-  <title>明生活--购物馆</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/app.css">
+  <script src="/component/menu.js"></script>
+  <script src="/component/index.js"></script>
+  <script src="/component/search.js"></script>
+  <title>明天生活--购物馆</title>
 </head>
+
 <body>
-  
+  <div id="app">
+    <router-view></router-view>
+    <bottom-menu></bottom-menu>
+  </div>
 </body>
+<script>
+
+  let app_data = {};
+  let app_methods = {};
+
+  let app_routers = [
+    {
+      name: "index",
+      path: "/index",
+      component: index
+    },
+    {
+      name: "search",
+      path: "/search",
+      component: search
+    }
+  ];
+
+  let app_router = new VueRouter({
+    routes: app_routers
+  });
+
+  let app = new Vue({
+    el: "#app",
+    data: app_data,
+    methods: app_methods,
+    router: app_router
+  });
+
+</script>
+
 </html>

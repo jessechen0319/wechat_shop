@@ -1,8 +1,51 @@
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  padding: 50px;
+  padding: 0px;
+  margin: 0px;
+  color: black;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
+
+html {
+  font-size : 20px;
+}
+@media only screen and (min-width: 401px){
+  html {
+      font-size: 25px !important;
+  }
+}
+@media only screen and (min-width: 428px){
+  html {
+      font-size: 26.75px !important;
+  }
+}
+@media only screen and (min-width: 481px){
+  html {
+      font-size: 30px !important; 
+  }
+}
+@media only screen and (min-width: 569px){
+  html {
+      font-size: 35px !important; 
+  }
+}
+@media only screen and (min-width: 641px){
+  html {
+      font-size: 40px !important; 
+  }
+}
+@media only screen and (min-width: 731px){
+  html {
+      font-size: 45px !important; 
+  }
+}
+
