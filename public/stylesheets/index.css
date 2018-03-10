@@ -43,7 +43,7 @@
     bottom: 0;
     height: 4rem;
     width: 100%;
-    background: #e6b372;
+    background: rgba(230, 179, 114, .5);
     box-shadow: 0px -2px 3px #acacac;
 }
 

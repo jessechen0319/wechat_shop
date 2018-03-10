@@ -1,5 +1,7 @@
 
-let search_component_data = {};
+let search_component_data = {product_test:{
+    icon: "/images/products/product_1/icon.png"
+}};
 let search = Vue.extend({
     template: `
     <div class="search">
@@ -17,7 +19,13 @@ let search = Vue.extend({
             <div class="catelog-item">樱桃</div>
         </div>
         <div class="items">
-            <div class="item"></div>
+            <div class="item">
+                <list-item>
+                    <div slot="image">
+                        <img :src="product_test.icon" />
+                    </div>
+                </list-item>
+            </div>
             <div class="item"></div>
             <div class="item"></div>
             <div class="item"></div>
@@ -28,5 +36,8 @@ let search = Vue.extend({
     `,
     data: function(){
         return search_component_data;
+    },
+    beforeCreate: function(){
+        Vue.component('list-item', ItemList);
     }
 });

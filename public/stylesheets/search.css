@@ -50,3 +50,7 @@
     background: #bd6363;
     color: white;
 }
+
+.search .item-list .item-image img {
+    height: 6rem;
+}
