@@ -7,7 +7,7 @@
 .index .title {
     position: relative;
     background: #d36565;
-    height: 10rem;
+    height: 8rem;
     width: 100%;
     box-shadow: 0px 5px 5px #a7a7a7;
     float: left;
@@ -15,7 +15,7 @@
 
 .index .body {
     position: absolute;
-    top: 10.3rem;
+    top: 8.3rem;
     bottom: 3rem;
     width: 100%;
 }
@@ -28,4 +28,64 @@
     display: inline-block;
     margin-left: 2%;
     margin-top: 2%;
+}
+
+.index .index-recommand-panel {
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.index .recommand-content {
+    position: absolute;
+    bottom: 0;
+    height: 4rem;
+    width: 100%;
+    background: #e6b372;
+    box-shadow: 0px -2px 3px #acacac;
+}
+
+
+.recommand-top {
+    height: 2.2rem;
+    text-align: center;
+    display: flex;
+    position: relative;
+    border-bottom: 1px solid white;
+}
+
+.recommand-top .item-1 {
+    font-size: 1.5rem;
+    color: red;
+    font-family: sans-serif;
+    flex: 2;
+}
+
+.recommand-top .item-2 {
+    flex: 2;
+    font-size: .8rem;
+    line-height: 2rem;
+}
+
+.recommand-bottom {
+    position: relative;
+    display: flex;
+    text-align: center;
+    color: #4b4b4b;
+}
+
+.recommand-bottom .item-1 {
+    flex: 3;
+    font-size: .6rem;
+    text-align: left;
+    padding-left: .3rem;
+    padding-top: .2rem;
+}
+
+.recommand-bottom .item-2 {
+    flex: 1;
+    color: black;
+    padding-top: .1rem;
 }

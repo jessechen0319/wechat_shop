@@ -7,15 +7,13 @@ let index_component_data = {};
 let index = Vue.extend({
     template: `
         <div class="index"> 
-            <link rel="stylesheet" href="/stylesheets/index.css">
             <div class="title">
-
             </div>
             <div class="body">
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
+                <div class="item"><index-recommand-panel product_name="山楂" product_price="6元/500g" product_comments="治疗食欲不振的利器"></index-recommand-panel></div>
+                <div class="item"><index-recommand-panel></index-recommand-panel></div>
+                <div class="item"><index-recommand-panel></index-recommand-panel></div>
+                <div class="item"><index-recommand-panel></index-recommand-panel></div>
             </div>
         </div>
     `,

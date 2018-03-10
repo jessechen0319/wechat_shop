@@ -3,7 +3,6 @@ let search_component_data = {};
 let search = Vue.extend({
     template: `
     <div class="search">
-        <link rel="stylesheet" href="/stylesheets/search.css">
         <div class="search-bar">
             <input type="text" class="search-input">
             <div class="search-button">
