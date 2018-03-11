@@ -52,5 +52,88 @@
 }
 
 .search .item-list .item-image img {
-    height: 6rem;
+    height: 5rem;
+}
+
+.search .items {
+    padding-top: 1rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 3rem;
+}
+
+
+
+.search .item-list {
+    display: flex;
+    position: relative;
+}
+
+.search .item-content {
+    padding-left: .8rem;
+}
+
+
+.search .item-list .title>div {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: .8rem;
+}
+
+.search .item-list .description {
+    display: flex;
+    height: 2rem;
+}
+
+.search .item-list .product-description {
+    line-height: 2rem;
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: .7rem;
+    border-right: 1px solid gray;
+    padding-right: 2rem;
+}
+
+.search .item-list .sell-amount>div {
+    color: darkgray;
+    font-size: .6rem;
+    margin-top: .3rem;
+}
+
+.search .item-list  .buy {
+    display: flex;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.search .item-list .price {
+    flex: 1;
+    text-align: left;
+}
+
+.search .item-list .line {
+    flex: 1;
+}
+
+.search .item-list .per {
+    flex: 4;
+    text-align: left;
+}
+
+.search .item-list .add-chart {
+    flex: 3;
+}
+
+.search .item-list .item-content {
+    flex: 3;
+}
+
+.search .item-list .item-image {
+    flex: 1;
+}
+
+.search  .item {
+    border-bottom: 1px solid darkgrey;
+    margin-bottom: 1rem;
 }

@@ -4,6 +4,7 @@
 //     `
 // });
 let index_component_data = {};
+
 let index = Vue.extend({
     template: `
         <div class="index"> 

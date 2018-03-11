@@ -1,0 +1,16 @@
+.cart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 3rem;
+}
+
+.cart-title {
+    height: 2rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    background: linear-gradient(to right, #ff2626 , #ff7354, #ff5abd);
+    color: white;
+}

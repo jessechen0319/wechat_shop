@@ -7,28 +7,48 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="/js/vue.js"></script>
   <script src="/js/vue-router.js"></script>
+  <script src="/js/data-bus.js"></script>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/stylesheets/app.css">
   <link rel="stylesheet" href="/stylesheets/index.css">
   <link rel="stylesheet" href="/stylesheets/search.css">
+  <link rel="stylesheet" href="/stylesheets/cart.css">
   <script src="/component/menu.js"></script>
   <script src="/component/index.js"></script>
   <script src="/component/index-recommand-panel.js"></script>
   <script src="/component/search.js"></script>
   <script src="/component/item-list.js"></script>
+  <script src="/component/cart.js"></script>
   <title>明天生活--购物馆</title>
 </head>
 
 <body>
   <div id="app">
-    <router-view></router-view>
-    <bottom-menu></bottom-menu>
+    <router-view @addtocart="addToCart"></router-view>
+    <bottom-menu :cartamount="cart_amount"></bottom-menu>
   </div>
 </body>
 <script>
 
-  let app_data = {};
-  let app_methods = {};
+
+  let app_data = {
+    cart_amount:0
+  };
+
+  let app_computed = {
+    
+  };
+
+  let app_watch = {
+    cart: function(val, oldVal){
+      console.log("hello world");
+    }
+  }
+  let app_methods = {
+    addToCart: function(){
+      this.cart_amount += 1;
+    }
+  };
 
   let app_routers = [
     {
@@ -40,6 +60,11 @@
       name: "search",
       path: "/search",
       component: search
+    },
+    {
+      name: "cart",
+      path: "/cart",
+      component: cart
     }
   ];
 
@@ -47,11 +72,13 @@
     routes: app_routers
   });
 
-  let app = new Vue({
+  var app = new Vue({
     el: "#app",
     data: app_data,
     methods: app_methods,
-    router: app_router
+    router: app_router,
+    watch: app_watch,
+    computed: app_computed
   });
 
 </script>
