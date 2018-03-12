@@ -15,7 +15,7 @@ let cart = Vue.extend({
                 </div>
                 <div class="description">
                     <div class="description-content">
-                        酸甜山楂，吃货必备，开吃前先给自己来个山楂buff
+                        吃货必备，开吃前先给自己来个山楂buff
                     </div>
                     <div class="option-panel">
                         <div class="decline">
