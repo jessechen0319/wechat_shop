@@ -128,6 +128,7 @@
 
 .search .item-list .item-content {
     flex: 3;
+    font-size: .7rem;
 }
 
 .search .item-list .item-image {

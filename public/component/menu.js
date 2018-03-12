@@ -13,15 +13,26 @@ Vue.component("bottom-menu", {
     </div>
     <div class="menu">
         <router-link to="/cart">购物车</router-link>
-        <div v-if="cartamount>0" class="cart-amount">
-            {{cartamount}}
-        </div>
+        <transition name="cart-animation">
+            <div v-if="cartamount>0 && animationflag" class="cart-amount">
+                {{cartamount}}
+            </div>
+        </transition>
     </div>
     <div class="menu">我的</div>
   </div>
     `,
     data: function(){
-        return {};
+        return {animationflag: true};
     },
-    props: bottom_menu_props
+    props: bottom_menu_props,
+    watch:{
+        cartamount: function(val, oldval){
+            let that = this;
+            this.animationflag = false;
+            setTimeout(function(){
+                that.animationflag = true;
+            }, 100);
+        }
+    }
 });

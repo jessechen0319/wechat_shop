@@ -1,10 +1,36 @@
 
 let search_component_data = {product_test:{
     icon: "/images/products/product_1/icon.png"
-}};
+},
+    searchresult: [
+        {
+            productId: 1,
+            productName: "山楂",
+            productDescription: "酸酸又甜甜",
+            productLocation: "山东",
+            productSellAmount: 100,
+            priceString: "¥10",
+            per: "500g",
+            cart_description: "酸甜山楂，吃货必备，开吃前先给自己来个山楂buff"
+        }
+    ]
+};
 
 let search_component_methods = {
-    
+    addCart: function(item){
+        dataBus.$data.cart_amount += 1;
+        let existCart = false;
+        dataBus.$data.cart_items.forEach(function(cert_item){
+            if(cert_item.productId == item.productId){
+                existCart = true;
+                cert_item.amount += 1;
+            }
+        });
+        if(!existCart){
+            item.amount = 1;
+            dataBus.$data.cart_items.push(item);
+        }
+    }
 };
 
 let search = Vue.extend({
@@ -24,79 +50,19 @@ let search = Vue.extend({
             <div class="catelog-item">樱桃</div>
         </div>
         <div class="items">
-            <div class="item">
-                <list-item>
+            <div class="item" v-for="item in searchresult">
+                <list-item @addtocart="addCart(item)">
                     <div slot="image">
                         <img :src="product_test.icon" />
                     </div>
-                    <div slot="name">山楂</div>
-                    <div slot="description">酸酸又甜甜</div>
+                    <div slot="name">{{item.productName}}</div>
+                    <div slot="description">{{item.productDescription}}</div>
                     <div slot="location">
-                        <div class="location_head">原产地</div>山东
+                        <div class="location_head">原产地</div>{{item.productLocation}}
                     </div>
-                    <div slot="sell_amount">100人已买</div>
-                    <div slot="price">¥10</div>
-                    <div slot="per">500g</div>
-                </list-item>
-            </div>
-            <div class="item">
-                <list-item>
-                    <div slot="image">
-                        <img :src="product_test.icon" />
-                    </div>
-                    <div slot="name">山楂</div>
-                    <div slot="description">酸酸又甜甜</div>
-                    <div slot="location">
-                        <div class="location_head">原产地</div>山东
-                    </div>
-                    <div slot="sell_amount">100人已买</div>
-                    <div slot="price">¥10</div>
-                    <div slot="per">500g</div>
-                </list-item>
-            </div>
-            <div class="item">
-                <list-item>
-                    <div slot="image">
-                        <img :src="product_test.icon" />
-                    </div>
-                    <div slot="name">山楂</div>
-                    <div slot="description">酸酸又甜甜</div>
-                    <div slot="location">
-                        <div class="location_head">原产地</div>山东
-                    </div>
-                    <div slot="sell_amount">100人已买</div>
-                    <div slot="price">¥10</div>
-                    <div slot="per">500g</div>
-                </list-item>
-            </div>
-            <div class="item">
-                <list-item>
-                    <div slot="image">
-                        <img :src="product_test.icon" />
-                    </div>
-                    <div slot="name">山楂</div>
-                    <div slot="description">酸酸又甜甜</div>
-                    <div slot="location">
-                        <div class="location_head">原产地</div>山东
-                    </div>
-                    <div slot="sell_amount">100人已买</div>
-                    <div slot="price">¥10</div>
-                    <div slot="per">500g</div>
-                </list-item>
-            </div>
-            <div class="item">
-                <list-item>
-                    <div slot="image">
-                        <img :src="product_test.icon" />
-                    </div>
-                    <div slot="name">山楂</div>
-                    <div slot="description">酸酸又甜甜</div>
-                    <div slot="location">
-                        <div class="location_head">原产地</div>山东
-                    </div>
-                    <div slot="sell_amount">100人已买</div>
-                    <div slot="price">¥10</div>
-                    <div slot="per">500g</div>
+                    <div slot="sell_amount">{{item.productSellAmount}}人已买</div>
+                    <div slot="price">{{item.priceString}}</div>
+                    <div slot="per">{{item.per}}</div>
                 </list-item>
             </div>
         </div>

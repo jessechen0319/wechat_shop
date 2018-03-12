@@ -1,7 +1,8 @@
 var dataBus = new Vue({
     data: function(){
         return {
-            cart_amount: 0
+            cart_amount: 0,
+            cart_items: []
         };
     },
     watch: {

@@ -1,7 +1,7 @@
 let item_list_data = {};
 let item_list_methods = {
     addToCart: function(){
-        dataBus.$data.cart_amount += 1;
+        this.$emit("addtocart");
     }
 };
 let ItemList = Vue.extend( {
