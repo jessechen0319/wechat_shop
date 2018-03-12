@@ -53,6 +53,7 @@
 
 .search .item-list .item-image img {
     height: 5rem;
+    margin-top: 0.5rem;
 }
 
 .search .items {
