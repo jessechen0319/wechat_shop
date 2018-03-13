@@ -1,13 +1,26 @@
 let cart_object = {
-    cartSelectStyle: {
-        "cart-unselected": false,
-        "cart-selected": true
-    }
+    
 };
 let cart_methods = {
-    changeCartSelectStyle: function(){
-        this.cartSelectStyle['cart-unselected'] = ! this.cartSelectStyle['cart-unselected'];
-        this.cartSelectStyle['cart-selected'] = ! this.cartSelectStyle['cart-selected'];
+    updateTotalPrice: function(){
+        let returnVal = 0;
+        dataBus.$data.cart_items.forEach((item)=>{
+            if(item.selected){
+                returnVal += item.price * item.amount;
+            }
+        });
+        return returnVal;
+    },
+    changeCartSelectStyle: function(item){
+        item.selected = !item.selected;
+        item.cartSelectStyle['cart-unselected'] = ! item.cartSelectStyle['cart-unselected'];
+        item.cartSelectStyle['cart-selected'] = ! item.cartSelectStyle['cart-selected'];
+        this.$forceUpdate();
+        this.updateTotalPrice();
+    },
+    deleteItem: function(item){
+        let index = dataBus.$data.cart_items.indexOf(item);
+        dataBus.$data.cart_items.splice(index, 1);
     },
     changeCartAmount: function(item, isIncrease){
         let index = dataBus.$data.cart_items.indexOf(item);
@@ -23,6 +36,7 @@ let cart_methods = {
         dataBus.$data.cart_items[index] = item;
         this.cartitems = dataBus.$data.cart_items;
         this.$forceUpdate();
+        this.updateTotalPrice();
     }
 };
 let cart = Vue.extend({
@@ -34,7 +48,7 @@ let cart = Vue.extend({
         <div class="cart-items">
             <div class="cart-item" v-for="item in cartitems">
                 <div class="option">
-                    <div :class="cartSelectStyle" v-on:click="changeCartSelectStyle"></div>
+                    <div :class="item.cartSelectStyle" v-on:click="changeCartSelectStyle(item)"></div>
                 </div>
                 <div class="image">
                     <img :src="item.icon">
@@ -63,10 +77,15 @@ let cart = Vue.extend({
                         ¥<span>{{item.amount*item.price}}</span>
                     </div>
                     <div class="remove">
-                    <img src="/images/remove.png">
+                        <img @click="deleteItem(item)" src="/images/remove.png">
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="total-price">
+            <span>总金额：</span>
+            <span>¥{{updateTotalPrice()}}</span>
+            <div class="confirm-pay">结算</div>
         </div>
     </div>
     `,
@@ -77,6 +96,15 @@ let cart = Vue.extend({
     props: {
         cartitems:{
             type: Array
+        }
+    },
+    computed: {
+        totalPrice: function(){
+            let returnVal = 0;
+            dataBus.$data.cart_items.forEach((item)=>{
+                returnVal += item.price * item.amount;
+            });
+            return returnVal;
         }
     }
 });

@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 3rem;
+    bottom: 2rem;
 }
 
 .cart .cart-title {
@@ -147,4 +147,31 @@
     width: .5rem;
     background: #ffffff;
     border-radius: 1rem;
+}
+
+.cart .total-price {
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    background: #EEEEF3;
+    font-size: 1rem;
+    border-top: 1px solid gray;
+    left: 0;
+    right: 0;
+    padding-left: 1rem;
+}
+
+.cart .confirm-pay {
+    display: inline-block;
+    position: absolute;
+    right: 1rem;
+    height: 2rem;
+    width: 4rem;
+    background: #FF0036;
+    top: .25rem;
+    line-height: 2rem;
+    color: lightcyan;
+    text-align: center;
+    border-radius: .2rem;
 }

@@ -13,23 +13,45 @@ let search_component_data = {product_test:{
             priceString: "¥10",
             price: 10,
             per: "500g",
-            cart_description: "酸甜山楂，开吃前先给自己来个山楂buff"
+            cart_description: "酸甜山楂，开吃前先给自己来个山楂buff",
+            cartSelectStyle: {
+                "cart-unselected": false,
+                "cart-selected": true
+            }
+        },
+        {
+            productId: 2,
+            icon: "/images/products/product_1/icon.png",
+            productName: "水饺",
+            productDescription: "酸酸又甜甜",
+            productLocation: "山东",
+            productSellAmount: 120,
+            priceString: "¥15",
+            price: 15,
+            per: "500g",
+            cart_description: "酸甜山楂，开吃前先给自己来个山楂buff",
+            cartSelectStyle: {
+                "cart-unselected": false,
+                "cart-selected": true
+            }
         }
     ]
 };
 
 let search_component_methods = {
     addCart: function(item){
-        dataBus.$data.cart_amount += 1;
         let existCart = false;
         dataBus.$data.cart_items.forEach(function(cert_item){
             if(cert_item.productId == item.productId){
                 existCart = true;
                 cert_item.amount += 1;
+                cert_item.selected = true;
             }
         });
         if(!existCart){
             item.amount = 1;
+            dataBus.$data.cart_amount += 1;
+            item.selected = true;
             dataBus.$data.cart_items.push(item);
         }
     }

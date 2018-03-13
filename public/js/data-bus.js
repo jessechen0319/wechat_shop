@@ -10,8 +10,8 @@ var dataBus = new Vue({
             app.cart_amount = val;
         },
         cart_items: function(val, old){
-            console.log('come in');
             app.$data.cart_items = val;
+            app.cart_amount = this.cart_items.length;
         },
         deep: true
     },
