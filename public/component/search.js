@@ -5,13 +5,15 @@ let search_component_data = {product_test:{
     searchresult: [
         {
             productId: 1,
+            icon: "/images/products/product_1/icon.png",
             productName: "山楂",
             productDescription: "酸酸又甜甜",
             productLocation: "山东",
             productSellAmount: 100,
             priceString: "¥10",
+            price: 10,
             per: "500g",
-            cart_description: "酸甜山楂，吃货必备，开吃前先给自己来个山楂buff"
+            cart_description: "酸甜山楂，开吃前先给自己来个山楂buff"
         }
     ]
 };

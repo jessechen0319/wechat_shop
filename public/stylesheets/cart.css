@@ -41,7 +41,9 @@
 
 .cart .option {
     text-align: left;
+    position: relative;
     font-size: 1rem;
+    line-height: 5.5rem;
 }
 
 .cart .option-panel{
@@ -113,4 +115,36 @@
 .cart .amount .totel-price {
     font-size: 1rem;
     padding: .2rem 0;
+}
+
+.cart .cart-unselected {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    border-radius: 2rem;
+    border: 1px solid gray;
+    margin: 0 .5rem;
+    cursor: pointer;
+}
+
+.cart .cart-selected {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    background: red;
+    border-radius: 2rem;
+    border: 1px solid gray;
+    margin: 0 .5rem;
+    position: relative;
+    cursor: pointer;
+}
+.cart .cart-selected:after{
+    content: "";
+    position: absolute;
+    top: .25rem;
+    left: .25rem;
+    height: .5rem;
+    width: .5rem;
+    background: #ffffff;
+    border-radius: 1rem;
 }

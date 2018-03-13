@@ -24,7 +24,7 @@
 
 <body>
   <div id="app">
-    <router-view @addtocart="addToCart"></router-view>
+    <router-view @addtocart="addToCart" :cartitems="cart_items"></router-view>
     <bottom-menu :cartamount="cart_amount"></bottom-menu>
   </div>
 </body>
@@ -32,7 +32,8 @@
 
 
   let app_data = {
-    cart_amount:0
+    cart_amount: 0,
+    cart_items: []
   };
 
   let app_computed = {

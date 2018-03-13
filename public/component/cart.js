@@ -1,4 +1,30 @@
-let cart_object = {};
+let cart_object = {
+    cartSelectStyle: {
+        "cart-unselected": false,
+        "cart-selected": true
+    }
+};
+let cart_methods = {
+    changeCartSelectStyle: function(){
+        this.cartSelectStyle['cart-unselected'] = ! this.cartSelectStyle['cart-unselected'];
+        this.cartSelectStyle['cart-selected'] = ! this.cartSelectStyle['cart-selected'];
+    },
+    changeCartAmount: function(item, isIncrease){
+        let index = dataBus.$data.cart_items.indexOf(item);
+        if(isIncrease){
+            item.amount += 1;
+        } else {
+            if(item.amount <= 1){
+                item.amount = 0;
+            } else {
+                item.amount -= 1;
+            }
+        }
+        dataBus.$data.cart_items[index] = item;
+        this.cartitems = dataBus.$data.cart_items;
+        this.$forceUpdate();
+    }
+};
 let cart = Vue.extend({
     template:`
     <div class="cart">
@@ -6,35 +32,35 @@ let cart = Vue.extend({
             购物车
         </div>
         <div class="cart-items">
-            <div class="cart-item">
+            <div class="cart-item" v-for="item in cartitems">
                 <div class="option">
-                    <img src="/images/selected.png">
+                    <div :class="cartSelectStyle" v-on:click="changeCartSelectStyle"></div>
                 </div>
                 <div class="image">
-                    <img src="/images/products/product_1/icon.png">
+                    <img :src="item.icon">
                 </div>
                 <div class="description">
                     <div class="description-content">
-                        吃货必备，开吃前先给自己来个山楂buff
+                        {{item.cart_description}}
                     </div>
                     <div class="option-panel">
-                        <div class="decline">
+                        <div class="decline" @click="changeCartAmount(item, false)">
                             -
                         </div>
                         <div class="amount-display">
-                            <input type="text"/>
+                            <input type="text" :value="item.amount"/>
                         </div>
-                        <div class="increase">
+                        <div class="increase" @click="changeCartAmount(item, true)">
                             +
                         </div>
                     </div>
                 </div>
                 <div class="amount">
                     <div class="amount-number">
-                        数量X2
+                        数量X{{item.amount}}
                     </div>
                     <div class="totel-price">
-                        ¥<span>20</span>
+                        ¥<span>{{item.amount*item.price}}</span>
                     </div>
                     <div class="remove">
                     <img src="/images/remove.png">
@@ -46,5 +72,11 @@ let cart = Vue.extend({
     `,
     data: function(){
         return cart_object;
+    },
+    methods: cart_methods,
+    props: {
+        cartitems:{
+            type: Array
+        }
     }
 });

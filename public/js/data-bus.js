@@ -8,6 +8,18 @@ var dataBus = new Vue({
     watch: {
         cart_amount: function(val, old){
             app.cart_amount = val;
+        },
+        cart_items: function(val, old){
+            console.log('come in');
+            app.$data.cart_items = val;
+        },
+        deep: true
+    },
+    methods: {
+        replaceCartItem: function(item, newVal){
+            this.cart_items[this.cart_items.indexOf(item)] = item;
         }
     }
 });
+
+
