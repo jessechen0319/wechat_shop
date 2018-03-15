@@ -16,18 +16,19 @@
     display: inline-block;
     background: white;
     margin-left: 0.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     line-height: 2rem;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     font-size: .8rem;
 }
 
 .search input.search-input {
-    width: 10rem;
+    width: 9rem;
     height: 1.5rem;
     margin-left: 2rem;
     font-size: 1rem;
+    border-radius: 0.2rem;
     border: 0;
 }
 
@@ -137,4 +138,30 @@
 .search  .item {
     border-bottom: 1px solid darkgrey;
     margin-bottom: 1rem;
+}
+
+.item-animation-enter-active {
+    animation: item-animation-in .5s;
+}
+
+.item-animation-leave-active {
+    animation: item-animation-in .5s reverse;
+}
+
+@keyframes item-animation-in {
+0% {
+    transform: scale(0);
+}
+50% {
+    transform: scale(1.5);
+}
+100% {
+    transform: scale(1);
+}
+}
+
+.search .add-chart img {
+    position: absolute;
+    right: 1rem;
+    bottom: .5rem;
 }

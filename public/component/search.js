@@ -34,6 +34,71 @@ let search_component_data = {product_test:{
                 "cart-unselected": false,
                 "cart-selected": true
             }
+        },
+        {
+            productId: 3,
+            icon: "/images/products/product_1/icon.png",
+            productName: "水饺",
+            productDescription: "酸酸又甜甜",
+            productLocation: "山东",
+            productSellAmount: 120,
+            priceString: "¥15",
+            price: 15,
+            per: "500g",
+            cart_description: "酸甜山楂，开吃前先给自己来个山楂buff",
+            cartSelectStyle: {
+                "cart-unselected": false,
+                "cart-selected": true
+            }
+        },
+        {
+            productId: 4,
+            icon: "/images/products/product_1/icon.png",
+            productName: "水饺",
+            productDescription: "酸酸又甜甜",
+            productLocation: "山东",
+            productSellAmount: 120,
+            priceString: "¥15",
+            price: 15,
+            per: "500g",
+            cart_description: "酸甜山楂，开吃前先给自己来个山楂buff",
+            cartSelectStyle: {
+                "cart-unselected": false,
+                "cart-selected": true
+            }
+        },
+        {
+            productId: 5,
+            icon: "/images/products/product_1/icon.png",
+            productName: "水饺",
+            productDescription: "酸酸又甜甜",
+            productLocation: "山东",
+            productSellAmount: 120,
+            priceString: "¥15",
+            price: 15,
+            per: "500g",
+            cart_description: "酸甜山楂，开吃前先给自己来个山楂buff",
+            cartSelectStyle: {
+                "cart-unselected": false,
+                "cart-selected": true
+            }
+        }
+        ,
+        {
+            productId: 6,
+            icon: "/images/products/product_1/icon.png",
+            productName: "水饺",
+            productDescription: "酸酸又甜甜",
+            productLocation: "山东",
+            productSellAmount: 120,
+            priceString: "¥15",
+            price: 15,
+            per: "500g",
+            cart_description: "酸甜山楂，开吃前先给自己来个山楂buff",
+            cartSelectStyle: {
+                "cart-unselected": false,
+                "cart-selected": true
+            }
         }
     ]
 };

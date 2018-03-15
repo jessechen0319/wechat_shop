@@ -1,6 +1,12 @@
-let item_list_data = {};
+let item_list_data = {
+};
 let item_list_methods = {
-    addToCart: function(){
+    addToCart: function(event){
+        let tempElement = $(event.srcElement).clone();
+        $(event.srcElement).parent().append(tempElement);
+        tempElement.animate({right:"5rem", bottom: "-14rem", "display":"none"}, ()=>{
+            tempElement.remove();
+        });
         this.$emit("addtocart");
     }
 };
@@ -35,7 +41,7 @@ let ItemList = Vue.extend( {
                         <slot name="per"></slot>
                     </div>
                     <div class="add-chart">
-                        <img src="/images/add-chat.png" style="    height: 1.5rem;" @click="addToCart" />
+                        <img src="/images/add-chat.png" @click="addToCart" />
                     </div>
                 </div>
             </div>

@@ -24,8 +24,11 @@
 .cart .cart-items {
     position: relative;
     width: 100%;
+    margin-bottom: 4.5rem;
     border-bottom: 1px solid lightgray;
 }
+
+.cart-items {}
 
 .cart .cart-item .image img {
     height: 3rem;
@@ -150,8 +153,8 @@
 }
 
 .cart .total-price {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 2rem;
     height: 2.5rem;
     line-height: 2.5rem;
     background: #EEEEF3;
